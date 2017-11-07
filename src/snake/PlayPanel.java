@@ -12,8 +12,9 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class PlayPanel extends JPanel implements ActionListener, KeyListener {
-    private final int speed = 150;
-
+    
+	private static final long serialVersionUID = 1L;
+	private int speed = 150;
     private Timer timer;
 	private Play play;
 	private Apple apple;
@@ -25,13 +26,20 @@ public class PlayPanel extends JPanel implements ActionListener, KeyListener {
 		addKeyListener(this);
 		setFocusable(true);
 		this.play = play;
-		score = 0;
-		apple = new Apple(play);
-		snake = new Snake(play, KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT);
-        timer = new Timer(speed, this);
-        timer.start();
-        locateApple();
+		startNew(speed);
     }
+	
+	 public void startNew(int speed) {
+		this.speed = speed;
+		score = 0;
+		apple = new Apple();
+		snake = new Snake(KeyEvent.VK_UP, KeyEvent.VK_DOWN,
+					KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT);
+
+		timer = new Timer(speed, this);
+	    timer.start();
+	    locateApple();
+	 }
 	
 	 private void locateApple() {
 	        apple.update();
@@ -52,20 +60,22 @@ public class PlayPanel extends JPanel implements ActionListener, KeyListener {
 	        	locateApple();
 	        	score++;
 	        }
-	    }
+	   }
 	 
 	 private void gameOver(Graphics g) {
-	        
-	        String msg = "Game Over. Your score - ";
-	        Font small = new Font("Helvetica", Font.BOLD, 14);
-	        FontMetrics metr = getFontMetrics(small);
-
-	        g.setColor(Color.white);
-	        g.setFont(small);
-	        g.drawString(msg + score, (560 - metr.stringWidth(msg)) / 2, 560 / 2);
+		   
+	     String msg = "Game Over. Your score - ";
+	     Font small = new Font("Helvetica", Font.BOLD, 14);
+	     FontMetrics metr = getFontMetrics(small);
+	     
+	     setFocusable(true);
+	     
+	     g.setColor(Color.white);
+	     g.setFont(small);
+	     g.drawString(msg + score, (560 - metr.stringWidth(msg)) / 2, 560 / 2);
 	    }
 
-	public void paintComponent(Graphics g) {
+	 public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		apple.paint(g);
 		snake.paint(g);
@@ -78,19 +88,16 @@ public class PlayPanel extends JPanel implements ActionListener, KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		snake.pressed(e.getKeyCode());
-		
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		;
-		
+		;	
 	}
 
 	@Override
 	public void keyTyped(KeyEvent arg0) {
-		;
-		
+		;	
 	}
 
 	@Override

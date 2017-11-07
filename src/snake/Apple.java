@@ -2,19 +2,18 @@ package snake;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 import java.util.Random;
 
 public class Apple {
-	private int WIDTH = 10, HEIGHT = 10;
+	
+	private final int WIDTH = 10, HEIGHT = 10;
 	private int x, y;
 	private int dSize = 10;
-	private Play play;
-	private Random random = new Random();
+	private Random random;
 	
-	Apple(Play play) {
-		this.play = play;
+	Apple() {
+		random = new Random();
 	}
 	
 	public void update() {

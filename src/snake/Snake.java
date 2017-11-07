@@ -2,14 +2,12 @@ package snake;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Rectangle;
 import java.awt.geom.Ellipse2D;
-import java.awt.geom.Rectangle2D;
 
 public class Snake {
-	private Play play;
+
 	private boolean collision = false;
-	private int WIDTH = 10, HEIGHT = 10;
+	private final int WIDTH = 10, HEIGHT = 10;
 	private int ya = 0;
 	private int xa = 0;
 	private int dots = 3;
@@ -19,8 +17,8 @@ public class Snake {
 	private final int xd[] = new int[3600];
 	private final int yd[] = new int[3600];
 	
-	Snake(Play play, int up, int down, int left, int right) {
-		this.play = play;
+	Snake(int up, int down, int left, int right) {
+
 		this.up = up;
 		this.down = down;
 		this.left = left;
@@ -54,14 +52,13 @@ public class Snake {
         if (ya == 2) {
             yd[0] += dSize;
         }
-        checkCollision();
     }
 	
 	public boolean checkCollision() {
 
         for (int z = dots; z > 0; z--) {
 
-            if ((z > 4) && (xd[0] == xd[z]) && (yd[0] == yd[z])) {
+            if ((z > 3) && (xd[0] == xd[z]) && (yd[0] == yd[z])) {
             	collision = true;
             }
         }

@@ -5,6 +5,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
 public class Play extends JFrame {
+	
+	private static final long serialVersionUID = 1L;
 	private PlayPanel panel;
 	private Menu menuBar;
 	
@@ -20,14 +22,13 @@ public class Play extends JFrame {
 		setSize(600, 600);
 		setTitle("Snake");
 		
-		menuBar = new Menu();
+		menuBar = new Menu(this);
         setJMenuBar(menuBar);
         
 		panel = new PlayPanel(this);
 		add(panel);
 		
 		setLocationRelativeTo(null);
-		
 	}
 	
 	public PlayPanel getPanel() {
@@ -41,5 +42,4 @@ public class Play extends JFrame {
 			}
 		});
 	}
-
 }
