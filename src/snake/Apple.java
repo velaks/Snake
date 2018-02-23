@@ -9,7 +9,7 @@ public class Apple {
 	
 	private final int WIDTH = 10, HEIGHT = 10;
 	private int x, y;
-	private int dSize = 10;
+	private int dotSize = 10;
 	private Random random;
 	
 	Apple() {
@@ -17,8 +17,8 @@ public class Apple {
 	}
 	
 	public void update() {
-		x = random.nextInt(58) * dSize;
-		y = random.nextInt(54) * dSize;
+		x = random.nextInt(58) * dotSize;
+		y = random.nextInt(54) * dotSize;
 	}
 	
 	public Rectangle2D.Double getBounds() {
