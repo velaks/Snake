@@ -15,17 +15,15 @@ public class PlayPanel extends JPanel implements ActionListener, KeyListener {
     
 	private static final long serialVersionUID = 1L;
 	private int speed = 150;
-    private Timer timer;
-	private Play play;
+    private Timer timer; //A Swing timer (an instance of javax.swing.Timer) fires one or more action events after a specified delay.
 	private Apple apple;
 	private Snake snake;
 	private int score;
 	
-	PlayPanel(Play play) {
+	PlayPanel() {
 		setBackground(Color.BLACK);
 		addKeyListener(this);
 		setFocusable(true);
-		this.play = play;
 		startNew(speed);
     }
 	
@@ -54,7 +52,7 @@ public class PlayPanel extends JPanel implements ActionListener, KeyListener {
 	 }
 	 
 	 public void checkFeed() {
-	        if (snake.getBounds().intersects(play.getPanel().getApple().getBounds())) {
+	        if (snake.getBounds().intersects(getApple().getBounds())) {
 	        	int d = snake.getDots() + 1;
 	        	snake.setDots(d);
 	        	locateApple();

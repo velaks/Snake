@@ -12,7 +12,7 @@ public class Snake {
 	private int xa = 0;
 	private int dots = 3;
 	private int up, down, left, right;
-	private int dSize = 10;
+	private int dotSize = 10;
 	private int panelWidth = 585, panelHeight = 545;
 	private final int xd[] = new int[3600];
 	private final int yd[] = new int[3600];
@@ -24,7 +24,7 @@ public class Snake {
 		this.left = left;
 		this.right = right;
 		
-		for (int z = 0; z < dots; z++) {
+		for (int z = 0; z < dots; z++) { //disposition of snake when game starts
             xd[z] = 50 - z * 10;
             yd[z] = 50;
 		}
@@ -38,19 +38,19 @@ public class Snake {
         }
 
         if (xa == -2) {
-            xd[0] -= dSize;
+            xd[0] -= dotSize;
         }
 
         if (xa == 2) {
-            xd[0] += dSize;
+            xd[0] += dotSize;
         }
 
         if (ya == -2) {
-            yd[0] -= dSize;
+            yd[0] -= dotSize;
         }
 
         if (ya == 2) {
-            yd[0] += dSize;
+            yd[0] += dotSize;
         }
     }
 	

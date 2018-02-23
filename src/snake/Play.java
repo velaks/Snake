@@ -25,7 +25,7 @@ public class Play extends JFrame {
 		menuBar = new Menu(this);
         setJMenuBar(menuBar);
         
-		panel = new PlayPanel(this);
+		panel = new PlayPanel();
 		add(panel);
 		
 		setLocationRelativeTo(null);
