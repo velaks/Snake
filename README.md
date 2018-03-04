@@ -1,3 +1,4 @@
+Run file "snake.jar" to play.
 Before start you can choose one of three level of difficulty. Default - "Easy".
 
 To start press any arrow key.
